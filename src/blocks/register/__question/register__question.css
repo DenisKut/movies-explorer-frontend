@@ -1,0 +1,16 @@
+.register__question {
+  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  transition: all .3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .register__question {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

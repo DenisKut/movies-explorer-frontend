@@ -1,0 +1,22 @@
+.movies-card-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 70px 70px 80px;
+  max-width: calc(100% - 70px*2);
+  transition: all 1s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .movies-card-list {
+    padding: 70px 30px 80px;
+    max-width: calc(100% - 30px*2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movies-card-list {
+    padding: 40px 10px 80px;
+    max-width: calc(100% - 10px*2);
+  }
+}

@@ -1,0 +1,26 @@
+.intro {
+  background-color: #F3C1F8;
+  padding: 75px 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: calc(100% - 70px * 2);
+  align-items: flex-start;
+}
+
+@media screen and (max-width:1024px) {
+  .intro {
+    padding: 140px  44px 76px;
+    flex-direction: column-reverse;
+    width: calc(100% - 44px * 2);
+    align-items: center;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .intro {
+    padding: 70px  55px 30px;
+    width: calc(100% - 55px * 2);
+  }
+}

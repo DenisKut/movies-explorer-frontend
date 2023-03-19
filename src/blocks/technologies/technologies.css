@@ -1,0 +1,24 @@
+.technologies {
+  background-color: #F5F5F5;
+  padding: 100px 70px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: calc(100% - 70px * 2);
+  align-items: flex-start;
+}
+
+@media screen and (max-width:1024px) {
+  .technologies{
+    padding: 90px 50px;
+    width: calc(100% - 50px * 2);
+  }
+}
+
+@media screen and (max-width:450px) {
+  .technologies{
+    background-color: #fff;
+    padding: 70px 18px;
+    width: calc(100% - 18px * 2);
+  }
+}

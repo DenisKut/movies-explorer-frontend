@@ -1,0 +1,23 @@
+.student {
+  background-color: #fff;
+  padding: 110px 70px 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: calc(100% - 70px * 2);
+  align-items: flex-start;
+}
+
+@media screen and (max-width:1024px) {
+  .student {
+    padding: 90px 50px;
+    width: calc(100% - 50px * 2);
+  }
+}
+
+@media screen and (max-width:450px) {
+  .student {
+    padding: 70px 14px;
+    width: calc(100% - 14px * 2);
+  }
+}
