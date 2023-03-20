@@ -21,6 +21,8 @@ This is a view for Diploma from ***Yandex-Practicum***
 
 ---
 
+## Ссылка на макет в Figma: [Сюда](https://www.figma.com/file/RtqLZu9lGtzuidUa5kptM3/Diploma-(Copy)?node-id=932-4497&t=YMOlzzpGSejdMuLs-0)
+
 ## Запуск проекта:
 * [Удалённый UI](https://favourite.movie.nomoredomainsclub.ru/);
 * Публичный IP сервера `158.160.7.249`.
