@@ -4,4 +4,5 @@
   border-radius: 6px;
   background: #FDFDFD;
   overflow: hidden;
+  width: inherit;
 }

@@ -1,11 +1,22 @@
 .technologies {
   background-color: #F5F5F5;
-  padding: 100px 70px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: calc(100% - 70px * 2);
   align-items: flex-start;
+  /* padding: 100px 70px;
+  width: calc(100% - 70px * 2); */
+
+  max-width: 1280px;
+  width: 100%;
+  padding: 100px calc((100% - 1280px)/2);
+}
+
+@media screen and (max-width: 1435px) {
+  .technologies {
+    padding: 100px 70px;
+    width: calc(100% - 70px * 2);
+  }
 }
 
 @media screen and (max-width:1024px) {

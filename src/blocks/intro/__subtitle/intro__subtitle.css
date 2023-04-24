@@ -10,7 +10,7 @@
   width: 310px;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1105px) {
   .intro__subtitle {
     width: 260px;
     margin: 22px 0 92px;

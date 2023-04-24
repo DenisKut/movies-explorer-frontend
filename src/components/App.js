@@ -1,4 +1,5 @@
 import moviesData from '../utils/movies';
+import { Helmet } from 'react-helmet';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from './Header';
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div className='page'>
+      <Helmet htmlAttributes={{ lang : "ru" }}/>
       <Switch>
 
         <Route exact path="/" >

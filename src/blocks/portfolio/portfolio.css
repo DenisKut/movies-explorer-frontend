@@ -1,11 +1,22 @@
 .portfolio {
   background-color: #fff;
-  padding: 0px 70px 125px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: calc(100% - 70px * 2);
   align-items: flex-start;
+  /* padding: 0px 70px 125px;
+  width: calc(100% - 70px * 2); */
+
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 calc((100% - 1280px)/2) 125px;
+}
+
+@media screen and (max-width: 1435px) {
+  .portfolio {
+    padding: 0px 70px 125px;
+    width: calc(100% - 70px * 2);
+  }
 }
 
 @media screen and (max-width:1024px) {

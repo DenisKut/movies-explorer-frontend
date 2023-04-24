@@ -46,6 +46,7 @@ function Register() {
             minLength='2'
             maxLength='30'
             type='text'
+            placeholder='Денис'
           />
           <span className='register__error'>
             {errors.name || ''}
@@ -61,6 +62,7 @@ function Register() {
             value={values.email || ''}
             required
             type='email'
+            placeholder='pochta@yandex.ru'
           />
           <span className='register__error'>
             {errors.email || ''}
@@ -78,6 +80,7 @@ function Register() {
             minLength='8'
             maxLength='30'
             type='password'
+            placeholder='Password'
           />
           <span className='register__error'>
             {errors.password || ''}

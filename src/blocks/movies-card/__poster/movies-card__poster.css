@@ -1,6 +1,7 @@
 .movies-card__poster {
   height: 203px;
   object-fit: cover;
+  background-position: center;
   transition: all 1s ease;
   width: 100%;
 }
