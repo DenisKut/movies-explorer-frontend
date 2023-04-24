@@ -44,6 +44,7 @@ function Login() {
             value={values.email || ''}
             required
             type='email'
+            placeholder='pochta@yandex.ru'
           />
           <span className='login__error'>
             {errors.email || ''}
@@ -61,6 +62,7 @@ function Login() {
             minLength='8'
             maxLength='30'
             type='password'
+            placeholder='Password'
           />
           <span className='login__error'>
             {errors.password || ''}
@@ -78,7 +80,7 @@ function Login() {
         </button>
         <span className='login__question'>
           Ещё не зарегистрированы?&nbsp;
-          <Link to='signin' className='login__signup-link'>
+          <Link to='signup' className='login__signup-link'>
             Регистрация
           </Link>
         </span>

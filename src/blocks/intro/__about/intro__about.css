@@ -4,7 +4,7 @@
   align-items: baseline;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1105px) {
   .intro__about {
     align-items: center;
     text-align: center;

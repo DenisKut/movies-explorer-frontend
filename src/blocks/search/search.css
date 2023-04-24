@@ -1,7 +1,10 @@
 .search {
-  margin: 70px 70px 80px;
-  max-width: calc(100% - 70px * 2);
+  max-width: 1280px;
   width: 100%;
+  margin: 70px calc((100% - 1280px)/2) 80px;
+
+  /* margin: 70px 70px 80px;
+  max-width: calc(100% - 70px * 2); */
   display:flex;
   flex-direction: row;
   box-sizing: border-box;
@@ -20,6 +23,13 @@
   width: 100%;
   bottom: -69px;
   transition: all 1s ease;
+}
+
+@media screen and (max-width: 1435px) {
+  .search {
+    margin: 70px 70px 80px;
+    max-width: calc(100% - 70px * 2);
+  }
 }
 
 @media screen and (max-width: 1024px) {
