@@ -5,14 +5,14 @@ function Burger({onClickBurger, isBurgerMenuOpened}) {
   const isSmallDisplay = useMediaQuery({query: `(max-width: 1024px)`});
 
   const handleClickBurgerBtn = () => {
-    onClickBurger(isBurgerMenuOpened);
+    onClickBurger();
   }
 
   useEffect(() => {
-    if(!isSmallDisplay) {
+    if(!isSmallDisplay && isBurgerMenuOpened) {
       onClickBurger(true);
     }
-  }, [isSmallDisplay, onClickBurger]);
+  }, [isBurgerMenuOpened, isSmallDisplay, onClickBurger]);
 
   return(
     <button

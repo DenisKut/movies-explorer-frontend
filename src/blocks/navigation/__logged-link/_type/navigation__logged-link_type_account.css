@@ -27,12 +27,12 @@
 
 @media screen and (max-width: 1024px) {
   .navigation__logged-link_type_account {
-    margin: 520px 0 0;
+    margin: 420px 0 0;
   }
 }
 
 @media screen and (max-width: 500px) {
   .navigation__logged-link_type_account {
-    margin-top: 591px;
+    margin-top: 451px;
   }
 }

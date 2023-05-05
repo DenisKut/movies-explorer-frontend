@@ -3,7 +3,7 @@ import useFormValidation from '../hooks/useFormValidation';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({handleLogin}) {
   const {
     values,
     handleChangeValues,
@@ -18,6 +18,7 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    handleLogin(values)
   }
 
   return (
@@ -80,7 +81,7 @@ function Login() {
         </button>
         <span className='login__question'>
           Ещё не зарегистрированы?&nbsp;
-          <Link to='signup' className='login__signup-link'>
+          <Link to='/signup' className='login__signup-link'>
             Регистрация
           </Link>
         </span>

@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import logo from '../images/logo.svg';
 
-function Header({ themeLight, onClickBurgerBtn, isBurgerMenuOpened, authorized}) {
+function Header({ onClickBurgerBtn, isBurgerMenuOpened, authorized}) {
+  const location = useLocation();
+
   return (
-    <header className={`header header_${themeLight ? 'light' : 'purple'}`}>
+    <header className={`header header_${location.pathname === '/' ? 'purple' : 'light'}`}>
       <Link to='/' className='header__logo-link'>
         <img className='header__logo' src={logo} alt='логотип страницы' />
       </Link>

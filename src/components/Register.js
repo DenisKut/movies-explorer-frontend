@@ -3,7 +3,7 @@ import useFormValidation from '../hooks/useFormValidation';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Register() {
+function Register({ handleRegister }) {
   const {
     values,
     handleChangeValues,
@@ -18,6 +18,7 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    handleRegister(values);
   }
 
   return (
