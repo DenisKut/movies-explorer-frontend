@@ -3,7 +3,7 @@ import useFormValidation from '../hooks/useFormValidation';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Login({handleLogin}) {
+function Login({handleLogin, loginError}) {
   const {
     values,
     handleChangeValues,
@@ -69,6 +69,7 @@ function Login({handleLogin}) {
             {errors.password || ''}
           </span>
         </label>
+        <p className='register__error-status'>{loginError}</p>
         <button
           className={
             `login__button ${

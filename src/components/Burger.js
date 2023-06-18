@@ -9,10 +9,10 @@ function Burger({onClickBurger, isBurgerMenuOpened}) {
   }
 
   useEffect(() => {
-    if(!isSmallDisplay && isBurgerMenuOpened) {
+    if(!isSmallDisplay) {
       onClickBurger(true);
     }
-  }, [isBurgerMenuOpened, isSmallDisplay, onClickBurger]);
+  }, [isSmallDisplay, onClickBurger]);
 
   return(
     <button

@@ -53,6 +53,11 @@ class MainApi {
       .then(this.checkErrors);
   }
 
+  getInitialData() {
+    return Promise.all([this.getUserInfo(), this.getSavedMovies()]);
+  }
+
+
   setUserInfo(name, email) {
     return fetch(`${this._link}/users/me`, {
       method: 'PATCH',
@@ -75,9 +80,9 @@ class MainApi {
         duration: data.duration,
         year: data.year,
         description: data.description,
-        image: data.image,
+        image: `https://api.nomoreparties.co${data.image.url}`,
         trailerLink: data.trailerLink,
-        thumbnail: data.thumbnail,
+        thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
         movieId: data.id,
         nameRU: data.nameRU,
         nameEN: data.nameEN,
@@ -87,7 +92,7 @@ class MainApi {
   }
 
   deleteSavedMovie(data) {
-    return fetch(`${this._link}/movies/${data}`, {
+    return fetch(`${this._link}/movies/${data._id}`, {
       method: 'DELETE',
       headers: this._getAuthHeaders()
     })

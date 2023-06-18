@@ -1,0 +1,17 @@
+.movies-card-list__search-not-found {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.208;
+  font-style: normal;
+  text-align: center;
+  align-self: center;
+}
+
+@media screen and (max-width: 600px) {
+  .movies-card-list__search-not-found {
+    font-size: 17px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+}

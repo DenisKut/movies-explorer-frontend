@@ -28,4 +28,3 @@ This is a view for Diploma from ***Yandex-Practicum***
 ## Запуск проекта:
 * [Удалённый UI](https://favourite.movie.nomoredomainsclub.ru/);
 * Публичный IP сервера `158.160.7.249`.
-

@@ -1,73 +1,68 @@
 import {useLocation} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import { DEVICE_PARAMS } from '../utils/constants';
-import { getSavedCard } from '../utils/utils';
-import useScreenWidth from '../hooks/useScreenWidth';
 import MoviesCard from './MoviesCard';
 
-function MoviesCardList({ movies, savedMovies, onLikeClick, onDeleteClick }) {
-  const { desktop, tablet, mobile } = DEVICE_PARAMS;
-
+function MoviesCardList({
+  movies,
+  isSearchError,
+  savedMovies,
+  handleSaveMovie,
+  handleDeleteMovie,
+  setSavedMovies
+}) {
+  const screenSize = document.documentElement.clientWidth;
+  const [viewedCards, setViewedCards] = useState(5);
   const location = useLocation();
-  const screenSize = useScreenWidth();
-  const [showedMovies, setShowedMovies] = useState([]);
-  const [showMore, setShowMore] = useState({ more: 3, total:12 });
-  const [mounted, setMounted] = useState(true);
 
-  function handleClickShowMore() {
-    const first = showedMovies.length;
-    const last = first + showMore.more;
-    const difference = movies.length - first;
+  const handleViewCards = () => {
+    const editCardsNumber = () => {
+      if(screenSize < 600) {
+        setViewedCards(5);
+      } else if (screenSize < 1024 && screenSize >= 600) {
+        setViewedCards(8);
+      } else {
+        setViewedCards(12);
+      }
+    };
+    setTimeout(editCardsNumber, 1000);
+  };
 
-    if(difference > 0) {
-      const newMovies = movies.slice(first, last);
-      setShowedMovies([...showedMovies, ...newMovies]);
-    }
+  const handleMoreCardsClick = () => {
+    if (screenSize < 600)
+      setViewedCards(viewedCards + 2);
+    else
+      setViewedCards(viewedCards + 3);
   }
 
-  // изменение экрана => изменение количества карточек
-  useEffect(() => {
-    if (location.pathname === '/movies') {
-      if (screenSize > desktop.width) {
-        setShowMore(desktop.cards);
-      } else if (screenSize <= desktop.width && screenSize > mobile.width) {
-        setShowMore(tablet.cards);
-      } else {
-        setShowMore(mobile.cards);
-      }
-      return () => setMounted(false);
-    }
-  }, [screenSize, mounted, desktop, tablet, mobile, location.pathname]);
-
-  // изменение отображения фильмов на экране
-  useEffect(() => {
-    if (movies.length) {
-      const res = movies.filter((item, index) => index < showMore.total);
-      setShowedMovies(res);
-    }
-  }, [movies, showMore.total]);
+  window.addEventListener('resize', handleViewCards, false);
 
   return(
     <section className='movies-card-list'>
+      {isSearchError && (<p className='movies-card-list__search-error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>)}
+      {(movies.length === 0) && (<p className='movies-card-list__search-not-found'>Ничего не найдено</p>)}
       <ul className='movies-card-list__list'>
-        {showedMovies.map(movie => {
-          return (
-          <MoviesCard
-            key={movie.movieId || movie._id || movie.id}
-            movie={movie}
-            saved={getSavedCard(movie, savedMovies)}
-            onLikeClick={onLikeClick}
-            onDeleteClick={onDeleteClick}
-          />
-        )})}
+        {
+          movies.slice(0, viewedCards).map(movie => {
+            return (
+              <MoviesCard
+                key={movie.movieId || movie._id || movie.id}
+                movie={movie}
+                savedMovies={savedMovies}
+                onLikeClick={handleSaveMovie}
+                onDeleteClick={handleDeleteMovie}
+                setSavedMovies ={setSavedMovies}
+              />
+            )
+          })
+        }
       </ul>
       {location.pathname === "/movies" &&
-        showedMovies.length >= 5 &&
-        showedMovies.length < movies.length &&
+        movies.length >= 5 &&
+        viewedCards < movies.length &&
       (
         <button
           className='movies-card-list__more'
-          onClick={handleClickShowMore}
+          onClick={handleMoreCardsClick}
         >
           Ещё
         </button>

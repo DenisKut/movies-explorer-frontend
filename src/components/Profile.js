@@ -2,7 +2,12 @@ import { useEffect, useContext } from "react";
 import useFormValidation from '../hooks/useFormValidation';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Profile({ handleEditProfile, handleSignOut }) {
+function Profile({
+  handleEditProfile,
+  handleSignOut,
+  updateState,
+  updateResMessage
+}) {
   const {
     values,
     handleChangeValues,
@@ -68,6 +73,7 @@ function Profile({ handleEditProfile, handleSignOut }) {
             {errors.email || ''}
           </span>
         </label>
+        <p className={`profile__edit-message ${!updateState && 'profile__edit-message_failed'}`}>{updateResMessage}</p>
         <button
           className={
             `profile__button-edit ${

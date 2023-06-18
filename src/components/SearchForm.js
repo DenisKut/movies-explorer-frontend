@@ -1,46 +1,40 @@
-import { useEffect, useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
-import useFormValidation from "../hooks/useFormValidation";
+
 import FilterCheckbox from "./FilterCheckbox";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import React, { useState } from "react";
 
-function SearchForm({shortMoviesCheckbox, handleShortMoviesCheckbox, handleSubmitSearch}) {
-  const currentUser = useContext(CurrentUserContext);
-  const location = useLocation();
-  const {
-    values,
-    handleChangeValues,
-    isValid,
-    setIsValid
-  } = useFormValidation();
-  const [errorSpan, setErrorSpan] = useState('');
+function SearchForm({
+  isSavedMoviesSearch,
+  handleSearchInSavedSubmit,
+  handleSearchInitialSubmit,
+  checkboxState,
+  handleChangeCheckbox
+}) {
+  const [searchInput, setSearchInput] = useState('');
+  const [isInputError, setIsInputError] = useState(false);
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    isValid ? handleSubmitSearch(values.search) : setErrorSpan('Нужно ввести ключевое слово');
-  };
-
-  useEffect(() => {
-    setErrorSpan('');
-  }, [isValid]);
-
-  //состояние поисковика из локального хранилища
-  useEffect(() => {
-    if (location.pathname === '/movies' &&
-    localStorage.getItem(`${currentUser.email} - movieSearch`)) {
-      const searchValue = localStorage.getItem(`${currentUser.email} - movieSearch`);
-      values.search = searchValue;
-      setIsValid(true);
+    if(isSavedMoviesSearch) {
+      handleSearchInSavedSubmit(searchInput);
+    } else {
+      handleSearchInitialSubmit(searchInput);
     }
-  }, [currentUser]);
+  }
+
+  const handleChangeInputValues = (event) => {
+    if(event.target.value === '' || event.target.checkValidity() === false){
+      setIsInputError(false);
+    }
+    setSearchInput(event.target.value);
+  }
 
   return(
     <section className="search">
       <form
         className="search__form"
         name="search"
-        onSubmit={handleSubmit}
         noValidate
+        onSubmit={handleSubmit}
       >
         <input
           className="search__input"
@@ -49,17 +43,19 @@ function SearchForm({shortMoviesCheckbox, handleShortMoviesCheckbox, handleSubmi
           required
           placeholder="Фильм"
           autoComplete="off"
-          value={values.search || ''}
-          onChange={handleChangeValues}
-        />
-        <span className="search__error">{errorSpan}</span>
+          onChange={handleChangeInputValues}
+          value={searchInput || ''}
+        />{
+          isInputError &&
+          (<span className="search__error">Нужно ввести ключевое слово</span>)
+        }
         <button className="search__btn" type="submit">
           Найти
         </button>
       </form>
       <FilterCheckbox
-        shortMoviesCheckbox={shortMoviesCheckbox}
-        handleShortMoviesCheckbox={handleShortMoviesCheckbox}
+        checkboxState = {checkboxState}
+        handleChangeCheckbox = {handleChangeCheckbox}
       />
     </section>
   )

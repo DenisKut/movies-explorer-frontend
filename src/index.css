@@ -105,6 +105,7 @@
 @import url("./blocks/register/__button/_activity/register__button_disabled.css");
 @import url("./blocks/register/__question/register__question.css");
 @import url("./blocks/register/__signin-link/register__signin-link.css");
+@import url("./blocks/register/__error-status/register__error-status.css");
 @import url("./blocks/login/login.css");
 @import url("./blocks/login/__link/login__link.css");
 @import url("./blocks/login/__logo/login__logo.css");
@@ -119,6 +120,7 @@
 @import url("./blocks/login/__button/_activity/login__button_disabled.css");
 @import url("./blocks/login/__question/login__question.css");
 @import url("./blocks/login/__signup-link/login__signup-link.css");
+@import url("./blocks/login/__error-status/login__error-status.css");
 @import url("./blocks/profile/profile.css");
 @import url("./blocks/profile/__title/profile__title.css");
 @import url("./blocks/profile/__form/profile__form.css");
@@ -131,17 +133,13 @@
 @import url("./blocks/profile/__button-edit/profile__button-edit.css");
 @import url("./blocks/profile/__button-edit/_activity/profile__button-edit_disabled.css");
 @import url("./blocks/profile/__button-exit/profile__button-exit.css");
+@import url("./blocks/profile/__edit-message/profile__edit-message.css");
+@import url("./blocks/profile/__edit-message/_status/profile__edit-message_failed.css");
 @import url("./blocks/not-found/not-found.css");
 @import url("./blocks/not-found/__container/not-found__container.css");
 @import url("./blocks/not-found/__error-code/not-found__error-code.css");
 @import url("./blocks/not-found/__error/not-found__error.css");
 @import url("./blocks/not-found/__button/not-found__button.css");
 @import url("./blocks/preloader/preloader.css");
-@import url("./blocks/status-info-block/status-info-block.css");
-@import url("./blocks/status-info-block/_activity/status-info-block__opened.css");
-@import url("./blocks/status-info-block/__container/status-info-block__container.css");
-@import url("./blocks/status-info-block/__status/status-info-block__status.css");
-@import url("./blocks/status-info-block/__status/_result/status-info-block__status_success.css");
-@import url("./blocks/status-info-block/__status/_result/status-info-block__status_fail.css");
-@import url("./blocks/status-info-block/__subtitle/status-info-block__subtitle.css");
-@import url("./blocks/status-info-block/__close-button/status-info-block__close-button.css");
+@import url("./blocks/movies-card-list/__search-error/movies-card-list__search-error.css");
+@import url("./blocks/movies-card-list/__search-not-found/movies-card-list__search-not-found.css");

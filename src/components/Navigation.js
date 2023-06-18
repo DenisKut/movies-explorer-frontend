@@ -4,8 +4,8 @@ import Burger from "./Burger";
 function Navigation({onClickBurgerBtn, isBurgerMenuOpened, authorization}) {
   const linkActivity = `navigation__link_resolution_${isBurgerMenuOpened ? 'small' : 'high'}`
 
-  const handleStoppingPropagation = (event) => {
-    event.stopPropagation();
+  const handleCloseBurgerMenu = (event) => {
+    onClickBurgerBtn(isBurgerMenuOpened);
   }
 
   return (
@@ -27,13 +27,12 @@ function Navigation({onClickBurgerBtn, isBurgerMenuOpened, authorization}) {
         </nav>
       ) : (
         <nav className={`navigation`}>
-          <div className={`${isBurgerMenuOpened ? 'navigation_blur' : ''}`} onClick={isBurgerMenuOpened ? onClickBurgerBtn : undefined}/>
+          <div className={`${isBurgerMenuOpened ? 'navigation_blur' : ''}`}/>
           <ul
             className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerMenuOpened ? 'opened' : 'closed'}`}
-            onClick={handleStoppingPropagation}
           >
             {isBurgerMenuOpened && (
-              <div className="navigation__cross" onClick={onClickBurgerBtn}/>
+              <div className="navigation__cross" onClick={handleCloseBurgerMenu}/>
             )}
             {isBurgerMenuOpened && (
                 <li className="navigation__item">

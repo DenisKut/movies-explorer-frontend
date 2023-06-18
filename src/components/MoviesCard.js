@@ -1,39 +1,62 @@
+import { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { changeDuration } from '../utils/utils';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function MoviesCard ({ movie, saved, onLikeClick, onDeleteClick }) {
+function MoviesCard ({
+  movie,
+  savedMovies,
+  onLikeClick,
+  onDeleteClick,
+  setSavedMovies
+}) {
   const location = useLocation();
+  const currentUser = useContext(CurrentUserContext);
+  const [isLiked, setIsLiked] = useState(false);
+  const [localSavedList, setLocalSavedList] = useState(() => JSON.parse(localStorage.getItem('savedMovies')));
+  const [likedMovie, setLikedMovie] = useState(() => localSavedList.find(savedMovie => savedMovie.nameRU === movie.nameRU || savedMovie.nameEN === movie.nameEN));
 
-  function handleLikeClick() {
+  const handleLikeClick = () => {
     onLikeClick(movie);
+    setIsLiked(true);
   }
 
-  function handleDeleteClick() {
+  const handleDeleteClick = () => {
     onDeleteClick(movie);
+    setIsLiked(false);
   }
 
-  return(
+  const changeDuration = (duration) => {
+    const hours = Math.trunc(duration / 60);
+    const minutes = duration % 60;
+    return hours === 0 ? `${minutes}м` : `${hours}ч ${minutes}м`;
+  }
+
+  useEffect(() => {
+    if(likedMovie) {
+      setIsLiked(true);
+    }
+  }, [likedMovie, location]);
+
+  return (
     <li className='movies-card'>
       <article className='movies-card__block'>
         <img
           className='movies-card__poster'
-          src={movie.image}
+          src={location.pathname === '/movies' ?
+            `https://api.nomoreparties.co${movie.image.url}` : movie.image }
           alt={movie.nameRU}
         />
         <div className='movies-card__description'>
           <h2 className='movies-card__title'>
-            {`${movie.nameRU}`}
+            {movie.nameRU}
           </h2>
           {location.pathname === '/movies' && (
             <button
               className={`movies-card__button ${
-                saved ? 'movies-card__button_type_saved' : ''
+                isLiked ? 'movies-card__button_type_saved' : ''
               }`}
               type="button"
-              onClick={saved ? handleDeleteClick : handleLikeClick}
-              aria-label={`${
-                saved ? 'Убрать из сохранённых' : 'Сохранить фильм'
-              }`}
+              onClick={isLiked ? handleDeleteClick : handleLikeClick}
             ></button>
           )}
           {location.pathname === '/saved-movies' && (
@@ -41,7 +64,6 @@ function MoviesCard ({ movie, saved, onLikeClick, onDeleteClick }) {
               className='movies-card__button movies-card__button_type_unsave'
               type="button"
               onClick={handleDeleteClick}
-              aria-label='Убрать из сохранённых'
             ></button>
           )}
         </div>
