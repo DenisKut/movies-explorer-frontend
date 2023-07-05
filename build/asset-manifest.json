@@ -1,28 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.f3d1c3c5.css",
-    "main.js": "/static/js/main.ceb61762.js",
+    "main.css": "/static/css/main.6bc25c3a.css",
+    "main.js": "/static/js/main.c67a75c1.js",
     "static/js/787.5fef94a4.chunk.js": "/static/js/787.5fef94a4.chunk.js",
-    "static/media/profilePhoto.jpg": "/static/media/profilePhoto.fb343946c8badb1d0ef1.jpg",
+    "static/media/profilePhoto.jpg": "/static/media/profilePhoto.cdf992dd3b462fa65a30.jpg",
     "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.44e343ff76a98508d309.woff",
     "static/media/web_earth_logo.svg": "/static/media/web_earth_logo.4d18e251db45718a364c92ba75ec7bcf.svg",
-    "static/media/Dzhenis.jpg": "/static/media/Dzhenis.2731be623e75248ae546.jpg",
-    "static/media/GimmeDanger.jpg": "/static/media/GimmeDanger.748e04e4f01b356d5155.jpg",
     "static/media/Inter-Black.woff?v=3.19": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
     "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
-    "static/media/BegEtoSvoboda.jpg": "/static/media/BegEtoSvoboda.d191ce09f8bbc345eb1d.jpg",
-    "static/media/Knigotargovci.jpg": "/static/media/Knigotargovci.13fad663cccedf15ec29.jpg",
     "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.01f03178adde434fc9fa.woff2",
     "static/media/Inter-Black.woff2?v=3.19": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
     "static/media/Inter-Regular.woff2?v=3.19": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
-    "static/media/BaskiaVzriv.jpg": "/static/media/BaskiaVzriv.150bcc951c798fa7061a.jpg",
-    "static/media/PoVolnam.jpg": "/static/media/PoVolnam.baf7b8a20b383bff12e1.jpg",
-    "static/media/PiDzeyHarvis.jpg": "/static/media/PiDzeyHarvis.3beceb55e23fdf5a8f6f.jpg",
-    "static/media/Kinoalmanah.jpg": "/static/media/Kinoalmanah.eb727dbc416fea15d9a2.jpg",
-    "static/media/33wordsAboutDesign.jpg": "/static/media/33wordsAboutDesign.c5e8618a4b944dfbff73.jpg",
-    "static/media/Soberis.jpg": "/static/media/Soberis.b6ccb9419f8c10041bb5.jpg",
-    "static/media/VPogoneZaBengsi.jpg": "/static/media/VPogoneZaBengsi.bc368be6c07080039fc4.jpg",
-    "static/media/KogdaYaDumauOGermanyi.jpg": "/static/media/KogdaYaDumauOGermanyi.2fca74c8596acd248f5b.jpg",
     "index.html": "/index.html",
     "static/media/BurgerIcon.svg": "/static/media/BurgerIcon.08035af1e508cd8cfed5.svg",
     "static/media/avatar.svg": "/static/media/avatar.66fc74f0b5bf13730525.svg",
@@ -32,12 +20,12 @@
     "static/media/cross_icon.svg": "/static/media/cross_icon.103b54acaafa7277c501.svg",
     "static/media/logo.svg": "/static/media/logo.c218b7a4ef29c0f2963ca3a8347e86ff.svg",
     "static/media/diagonal_arrow.svg": "/static/media/diagonal_arrow.2865e6d76c204dd71e92.svg",
-    "main.f3d1c3c5.css.map": "/static/css/main.f3d1c3c5.css.map",
-    "main.ceb61762.js.map": "/static/js/main.ceb61762.js.map",
+    "main.6bc25c3a.css.map": "/static/css/main.6bc25c3a.css.map",
+    "main.c67a75c1.js.map": "/static/js/main.c67a75c1.js.map",
     "787.5fef94a4.chunk.js.map": "/static/js/787.5fef94a4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3d1c3c5.css",
-    "static/js/main.ceb61762.js"
+    "static/css/main.6bc25c3a.css",
+    "static/js/main.c67a75c1.js"
   ]
 }

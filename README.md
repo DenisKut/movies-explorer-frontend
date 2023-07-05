@@ -1,6 +1,8 @@
 # movies-explorer-api
 This is a view for Diploma from ***Yandex-Practicum***
 
+**Pull-request** -> [Ссылка](https://github.com/DenisKut/movies-explorer-frontend/pull/4)
+-----------------
 ### **Ссылка на репозиторий [GitHub](https://github.com/DenisKut/movies-explorer-frontend.git)**
 ------------
 ***В нём представлены:***
@@ -26,4 +28,3 @@ This is a view for Diploma from ***Yandex-Practicum***
 ## Запуск проекта:
 * [Удалённый UI](https://favourite.movie.nomoredomainsclub.ru/);
 * Публичный IP сервера `158.160.7.249`.
-

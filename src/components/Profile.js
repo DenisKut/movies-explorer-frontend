@@ -1,7 +1,13 @@
+import { useEffect, useContext } from "react";
 import useFormValidation from '../hooks/useFormValidation';
-import { useEffect } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Profile() {
+function Profile({
+  handleEditProfile,
+  handleSignOut,
+  updateState,
+  updateResMessage
+}) {
   const {
     values,
     handleChangeValues,
@@ -10,18 +16,24 @@ function Profile() {
     isValid,
   } = useFormValidation();
 
-  useEffect(() => {
-    resetForm();
-  }, [resetForm])
+  const currentUser = useContext(CurrentUserContext);
+  const validity = (!isValid || (currentUser.name === values.name && currentUser.email === values.email));
 
   function handleSubmit(event) {
     event.preventDefault();
+    handleEditProfile(values)
   }
+
+  //загружаем данные из апи в компоненты
+  useEffect(() => {
+    if(currentUser)
+      resetForm(currentUser, {}, true);
+  }, [currentUser, resetForm]);
 
   return(
     <main className="profile">
       <h1 className='profile__title'>
-        Привет, Денис!
+        {`Привет, ${currentUser.name || ''}!`}
       </h1>
       <form
         className="profile__form"
@@ -36,7 +48,7 @@ function Profile() {
             className={`profile__input ${errors.name && 'profile__input_error'}`}
             name='name'
             onChange={handleChangeValues}
-            value={values.name || 'Денис'}
+            value={values.name || ''}
             required
             minLength='2'
             maxLength='30'
@@ -53,7 +65,7 @@ function Profile() {
             className={`profile__input ${errors.email && 'profile__input_error'}`}
             name='email'
             onChange={handleChangeValues}
-            value={values.email || 'dencha@yandex.by'}
+            value={values.email || ''}
             required
             type='email'
           />
@@ -61,19 +73,24 @@ function Profile() {
             {errors.email || ''}
           </span>
         </label>
+        <p className={`profile__edit-message ${!updateState && 'profile__edit-message_failed'}`}>{updateResMessage}</p>
         <button
           className={
             `profile__button-edit ${
-              !isValid && 'profile__button-edit_disabled'
+              validity && 'profile__button-edit_disabled'
             }`}
           type='submit'
-          disabled={!isValid}
+          disabled={validity ? true : false}
         >
           Редактировать
         </button>
-        <button type="submit" className="profile__button-exit">
-            Выйти из аккаунта
-          </button>
+        <button
+          type="submit"
+          className="profile__button-exit"
+          onClick={handleSignOut}
+        >
+          Выйти из аккаунта
+        </button>
       </form>
     </main>
   )

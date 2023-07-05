@@ -1,0 +1,18 @@
+.register__error-status {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.208;
+  font-style: normal;
+  text-align: center;
+  align-self: center;
+  color: rgb(238, 92, 92);
+}
+
+@media screen and (max-width: 600px) {
+  .register__error-status {
+    font-size: 17px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+}

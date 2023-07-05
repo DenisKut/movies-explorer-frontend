@@ -1,36 +1,28 @@
 import SearchForm from "./SearchForm";
 import MoviesCardList from './MoviesCardList';
 
-function Movies({
-  isSavedMoviesSearch = false,
-  handleSearchInitialSubmit,
+function SavedMovies({
+  isSavedMoviesSearch = true,
+  handleSearchInSavedSubmit,
   checkboxState,
   handleChangeCheckbox,
   movies,
-  savedMovies,
-  handleSaveMovie,
   handleDeleteMovie,
-  isSearchError,
-  setSavedMovies
 }) {
-  return(
+  return (
     <main className="movies">
-      <SearchForm
+       <SearchForm
         isSavedMoviesSearch = {isSavedMoviesSearch}
-        handleSearchInitialSubmit = {handleSearchInitialSubmit}
+        handleSearchInSavedSubmit = {handleSearchInSavedSubmit}
         checkboxState = {checkboxState}
         handleChangeCheckbox = {handleChangeCheckbox}
       />
       <MoviesCardList
         movies={movies}
-        savedMovies={savedMovies}
-        handleSaveMovie={handleSaveMovie}
         handleDeleteMovie = {handleDeleteMovie}
-        isSearchError = {isSearchError}
-        setSavedMovies ={setSavedMovies}
       />
     </main>
   )
 }
 
-export default Movies;
+export default SavedMovies;

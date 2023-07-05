@@ -5,7 +5,7 @@ function Burger({onClickBurger, isBurgerMenuOpened}) {
   const isSmallDisplay = useMediaQuery({query: `(max-width: 1024px)`});
 
   const handleClickBurgerBtn = () => {
-    onClickBurger(isBurgerMenuOpened);
+    onClickBurger();
   }
 
   useEffect(() => {

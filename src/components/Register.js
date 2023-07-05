@@ -3,7 +3,7 @@ import useFormValidation from '../hooks/useFormValidation';
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Register() {
+function Register({ handleRegister, registerError }) {
   const {
     values,
     handleChangeValues,
@@ -18,6 +18,7 @@ function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    handleRegister(values);
   }
 
   return (
@@ -86,6 +87,7 @@ function Register() {
             {errors.password || ''}
           </span>
         </label>
+        <p className='register__error-status'>{registerError}</p>
         <button
           className={
             `register__button ${
