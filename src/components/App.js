@@ -191,8 +191,12 @@ function App() {
     setLoggedIn(false);
     setInitialMovies([]);
     setMovies([]);
-    history.push('/');
+    setSavedMovies([]);
+    setUpdateResMessage('');
     setCurrentUser({});
+    setCheckboxState(false);
+    history.push('/');
+    localStorage.clear();
   }
 
   useEffect(() => {

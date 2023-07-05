@@ -39,9 +39,9 @@ function MoviesCardList({
   return(
     <section className='movies-card-list'>
       {isSearchError && (<p className='movies-card-list__search-error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>)}
-      {(movies.length === 0) && (<p className='movies-card-list__search-not-found'>Ничего не найдено</p>)}
+      {(movies == null || movies.length === 0) && (<p className='movies-card-list__search-not-found'>Ничего не найдено</p>)}
       <ul className='movies-card-list__list'>
-        {
+        { (movies != null) &&
           movies.slice(0, viewedCards).map(movie => {
             return (
               <MoviesCard
@@ -57,6 +57,7 @@ function MoviesCardList({
         }
       </ul>
       {location.pathname === "/movies" &&
+        movies != null &&
         movies.length >= 5 &&
         viewedCards < movies.length &&
       (
